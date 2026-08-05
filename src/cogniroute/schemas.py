@@ -1,27 +1,38 @@
 from pydantic import BaseModel, Field
 from enum import Enum
+from typing import List
 
-"""
-Create a strict list of strings. The route must be one of the following, since Enum is used,
-it will raise a validation error if the route is not one of the defined values.
-"""
 class RouteName(str, Enum):
     EXPLAIN_CONCEPT = "explain_concept"
     GENERATE_QUIZ = "generate_quiz"
     STUDY_PLAN = "study_plan"
     UNKNOWN = "unknown"
 
-"""
-This defines the shape of the data coming into the API. Query is a required field, and it must be a string.
-Field(...) means that this field is required. The description is used for documentation purposes.
-"""
 class RouterRequest(BaseModel):
     query: str = Field(..., description="The user's natural language input")
 
-"""
-This defines the shape of the data going out of the API. It includes the original query, the matched route, and a confidence score.
-"""
-class RouterResponse(BaseModel):
-    query: str
+# Agent Schemas
+
+class QuizQuestion(BaseModel):
+    question: str
+    options: List[str]
+    correct_answer: str
+
+class QuizResponse(BaseModel):
+    topic: str
+    questions: List[QuizQuestion]
+
+class ExplanationResponse(BaseModel):
+    concept: str
+    summary: str
+    key_points: List[str]
+
+class StudyPlanResponse(BaseModel):
+    goal: str
+    timeline: List[str]
+
+# The main response can be any of these
+class AgentResponse(BaseModel):
     route: RouteName
-    confidence: float = Field(..., description="Cosine similarity score of the matched route")
+    confidence: float
+    data: dict
