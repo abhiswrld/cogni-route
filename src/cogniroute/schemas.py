@@ -36,3 +36,7 @@ class AgentResponse(BaseModel):
     route: RouteName
     confidence: float
     data: dict
+
+class RouterRequest(BaseModel):
+    query: str = Field(..., description="The user's natural language input")
+    user_id: str = Field("default-user", description="Identifier for the user's session/memory")
