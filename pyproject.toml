@@ -10,7 +10,10 @@ requires-python = ">=3.12"
 dependencies = [
     "chromadb>=1.5.9",
     "fastapi>=0.141.1",
+    "google-genai>=2.16.0",
+    "openai>=2.53.0",
     "pydantic>=2.13.4",
+    "python-dotenv>=1.2.2",
     "sentence-transformers>=5.6.1",
     "uvicorn>=0.52.1",
 ]
