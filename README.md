@@ -2,6 +2,8 @@
 
 A multi-agent semantic routing system with persistent vector memory, exposed via MCP (Model Context Protocol) for educational AI workflows.
 
+https://github.com/user-attachments/assets/3014ab79-e70a-470c-874f-1644b9ec4a7e
+
 ## Overview
 
 CogniRoute is an AI Infrastructure project designed to route user intents to specialized sub-agents cheaply, reliably, and locally. Instead of relying on expensive LLMs to classify intent, CogniRoute uses local embedding models to route requests in <50ms for $0
