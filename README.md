@@ -1,4 +1,4 @@
-# CogniRoute 🧠⚡
+# CogniRoute
 
 A multi-agent semantic routing system with persistent vector memory, exposed via MCP (Model Context Protocol) for educational AI workflows.
 
